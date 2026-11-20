@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: app
+  namespace: lab01
+  labels:
+    tier: app
+spec:
+  containers:
+
+# 개별 환경 변수 방식 (valueFrom)
+  - name: busybox1
+    image: busybox:1.37
+    command: ["sh", "-c", "trap 'exit 0' TERM; sleep 3600 & wait"]
+    env:
+    - name: user
+      valueFrom:
+        secretKeyRef:
+          name: app
+          key: USER
+    - name: pwd
+      valueFrom:
+        secretKeyRef:
+          name: app
+          key: PASSWORD
+
+# 전체 환경 변수 방식 (envFrom)
+  - name: busybox2
+    image: busybox:1.37
+    command: ["sh", "-c", "trap 'exit 0' TERM; sleep 3600 & wait"]
+    envFrom:
+    - secretRef:
+        name: app
+
+# Volume Mount 방식
+  - name: busybox3
+    image: busybox:1.37
+    command: ["sh", "-c", "trap 'exit 0' TERM; sleep 3600 & wait"]
+    volumeMounts:
+    - name: secret
+      mountPath: /etc/secret
+
+  volumes:
+  - name: secret
+    secret:
+      secretName: app

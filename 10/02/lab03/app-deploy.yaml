@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app
+  namespace: lab03
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      tier: app
+
+  template:
+    metadata:
+      labels:
+        tier: app
+    spec:      
+      containers:
+      - name: busybox
+        image: busybox:1.37
+        command: ["sh", "-c", "trap 'exit 0' TERM; sleep 3600 & wait"]
+
+        envFrom:
+        - configMapRef:
+            name: app
+
+        volumeMounts:
+        - name: config
+          mountPath: /etc/config
+        - name: config
+          mountPath: /etc/app/version
+          subPath: APP_VERSION
+
+      volumes:
+      - name: config
+        configMap:
+          name: app

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lab01-unschedule
+  namespace: lab01
+spec:
+  nodeSelector:
+    diskType: ssd
+  containers:
+  - name: alpine
+    image: alpine:3.24

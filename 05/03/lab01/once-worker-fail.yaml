@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lab01-once-worker-fail
+  namespace: lab01
+spec:
+  restartPolicy: Never
+  containers:
+  - name: once-worker-fail
+    image: dkrcore/once-worker:1.0
+    command: ["sh", "-c", "echo once worker overrided; exit 1"]

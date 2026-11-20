@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: emptydir
+  namespace: lab01
+  labels:
+    app: emptydir
+
+spec:
+  containers:
+  - name: writer
+    image: busybox:1.37
+    command: ["sh", "-c", "date +%T | tee -a /write/start.log /tmp/start.log; sleep 3600 & wait"]
+    volumeMounts:
+    - name: shared
+      mountPath: /write
+
+  - name: reader
+    image: busybox:1.37
+    command: ["sleep", "3600"]
+    volumeMounts:
+    - name: shared
+      mountPath: /read
+
+  volumes:
+  - name: shared
+    emptyDir: {}
