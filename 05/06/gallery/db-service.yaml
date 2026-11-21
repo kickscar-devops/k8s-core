@@ -4,6 +4,7 @@ metadata:
   name: db
   namespace: gallery
 spec:
+  type: ClusterIP
   selector:
     tier: db
   ports:

@@ -4,6 +4,7 @@ metadata:
   name: db
   namespace: gallery
 spec:
+  image: 865509656639.dkr.ecr.ap-northeast-2.amazonaws.com/gallery:1.0 
   selector:
     tier: db
   ports:

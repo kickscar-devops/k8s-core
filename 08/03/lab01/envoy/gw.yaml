@@ -18,7 +18,7 @@ metadata:
   name: gw
   namespace: lab01
 spec:
-  gatewayClassName: eg
+  gatewayClassName: lab01-cluster-envoygw
   infrastructure:
     parametersRef:
       group: gateway.envoyproxy.io
