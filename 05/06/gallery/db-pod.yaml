@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: gallery-db
+  name: db
   namespace: gallery
   labels:
-    app: gallery-db
+    tier: db
 spec:
   containers:
   - name: mariadb
