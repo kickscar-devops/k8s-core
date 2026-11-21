@@ -5,7 +5,7 @@ metadata:
   namespace: lab01
 spec:
   parentRefs:
-  - name: gw
+  - name: app-gateway
   rules:
   
   - matches:

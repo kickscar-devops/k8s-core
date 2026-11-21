@@ -4,6 +4,7 @@ metadata:
   name: app
   namespace: gallery
 spec:
+  type: ClusterIP
   selector:
     tier: app
   ports:
