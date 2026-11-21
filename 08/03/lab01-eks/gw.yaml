@@ -14,7 +14,7 @@ metadata:
   name: gw
   namespace: lab01
 spec:
-  gatewayClassName: lab01-cluster-alb
+  gatewayClassName: lab01-cluster-eksgw
   infrastructure:
     parametersRef:
       group: gateway.k8s.aws
