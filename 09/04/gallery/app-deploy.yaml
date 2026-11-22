@@ -23,7 +23,9 @@ spec:
     spec:
       securityContext:
         fsGroup: 10001
-        
+        seLinuxOptions:
+          level: "s0:c123,c456"        
+
       initContainers:
       - name: wait-db
         image: busybox:1.37
