@@ -5,7 +5,7 @@ metadata:
   namespace: lab02
 spec:
   parentRefs:
-  - name: app-gateway
+  - name: app
   rules:
   - backendRefs:
     - name: app-v1

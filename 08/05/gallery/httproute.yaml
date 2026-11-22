@@ -5,7 +5,7 @@ metadata:
   namespace: gallery
 spec:
   parentRefs:
-  - name: app-gateway
+  - name: app
   rules:
   - matches:
     - path:
