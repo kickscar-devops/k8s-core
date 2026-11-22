@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: spread
+  name: web
   namespace: lab01
 spec:
   replicas: 6
