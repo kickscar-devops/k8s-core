@@ -21,6 +21,9 @@ spec:
       labels:
         tier: app
     spec:
+      securityContext:
+        fsGroup: 10001
+        
       initContainers:
       - name: wait-db
         image: busybox:1.37
