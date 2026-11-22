@@ -5,13 +5,11 @@ metadata:
   namespace: gallery
 spec:
   replicas: 2
-  
   strategy:
     type: RollingUpdate
     rollingUpdate:
       maxUnavailable: 25%
-      maxSurge: 25%
-  
+      maxSurge: 25%  
   selector:
     matchLabels:
       tier: app
@@ -27,8 +25,10 @@ spec:
         command: ["sh", "-c"]
         args:
         - until nc -z -w 2 db.gallery.svc 3306; do echo "$(date +%T) waiting for db.gallery.svc:3306"; sleep 3; done; echo "$(date +%T) db.gallery.svc:3306 is ready"
+
       containers:
       - name: gallery
+#        image: dkrcore/gallery:1.0      
         image: 865509656639.dkr.ecr.ap-northeast-2.amazonaws.com/gallery:1.0 
         ports:
         - containerPort: 8080
@@ -50,6 +50,7 @@ spec:
           periodSeconds: 10
           successThreshold: 1
           failureThreshold: 3
+
         readinessProbe:
           httpGet:
             path: /actuator/health/readiness

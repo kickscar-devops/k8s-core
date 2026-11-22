@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: lab02-startup
+  name: startup
   namespace: lab02
 spec:
   terminationGracePeriodSeconds: 5

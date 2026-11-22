@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: DaemonSet
 metadata:
-  name: lab01-agent
+  name: agent
   namespace: lab01
 spec:
   selector:
     matchLabels:
-      app: lab01-agent
+      app: agent
   template:
     metadata:
       labels:
-        app: lab01-agent
+        app: agent
     spec:
       tolerations:
       - key: node-role.kubernetes.io/control-plane

@@ -1,7 +1,7 @@
 apiVersion: policy/v1
 kind: PodDisruptionBudget
 metadata:
-  name: web-pdb
+  name: web
   namespace: lab02
 spec:
   minAvailable: 5

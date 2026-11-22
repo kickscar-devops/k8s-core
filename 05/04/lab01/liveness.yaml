@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: lab01-liveness
+  name: liveness
   namespace: lab01
 spec:
   containers:

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: lab01-term-grace
+  name: term-grace
   namespace: lab01
 spec:
   terminationGracePeriodSeconds: 5
