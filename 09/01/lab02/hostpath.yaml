@@ -14,6 +14,7 @@ spec:
     volumeMounts:
     - name: shared
       mountPath: /write
+
   volumes:
   - name: shared
     hostPath:
@@ -38,6 +39,7 @@ spec:
     volumeMounts:
     - name: shared
       mountPath: /read
+
   volumes:
   - name: shared
     hostPath:

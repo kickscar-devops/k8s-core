@@ -6,8 +6,9 @@ metadata:
   labels:
     app: reader
 spec:
-  nodeSelector:
-    kubernetes.io/hostname: worker1
+  terminationGracePeriodSeconds: 5
+  # nodeSelector:
+  #   kubernetes.io/hostname: worker1
   containers:
   - name: busybox
     image: busybox:1.37
@@ -15,6 +16,7 @@ spec:
     volumeMounts:
     - name: shared
       mountPath: /read
+
   volumes:
   - name: shared
     persistentVolumeClaim:

@@ -6,6 +6,7 @@ metadata:
   labels:
     app: reader
 spec:
+  terminationGracePeriodSeconds: 5
   nodeSelector:
     kubernetes.io/hostname: worker2
   containers:
@@ -15,6 +16,7 @@ spec:
     volumeMounts:
     - name: shared
       mountPath: /read
+
   volumes:
   - name: shared
     persistentVolumeClaim:

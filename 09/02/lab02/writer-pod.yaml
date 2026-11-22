@@ -16,6 +16,7 @@ spec:
     volumeMounts:
     - name: shared
       mountPath: /write
+
   volumes:
   - name: shared
     persistentVolumeClaim:
