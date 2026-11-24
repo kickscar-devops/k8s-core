@@ -3,8 +3,6 @@ kind: Pod
 metadata:
   name: app
   namespace: lab01
-  labels:
-    tier: app
 spec:  
   containers:
 
@@ -45,8 +43,6 @@ spec:
     image: busybox:1.37
     command: ["sh", "-c", "trap 'exit 0' TERM; sleep 3600 & wait"]
     volumeMounts:
-    - name: config
-      mountPath: /etc/config
     - name: config
       mountPath: /etc/app/mode
       subPath: APP_MODE

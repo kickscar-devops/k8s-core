@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app
+  namespace: gallery
+data:
+  LOGGING_LEVEL_ROOT: INFO
+
+  SPRING_DATASOURCE_URL: "jdbc:mariadb://db.gallery.svc:3306/gallery"
+
+  APP_STORAGE_TYPE: "local"
+  APP_STORAGE_LOCAL_PATH: "uploads" 

@@ -13,7 +13,7 @@ spec:
     image: busybox:1.37
     command: ["sh", "-c", "trap 'exit 0' TERM; sleep 3600 & wait"]
     env:
-    - name: user
+    - name: usr
       valueFrom:
         secretKeyRef:
           name: app

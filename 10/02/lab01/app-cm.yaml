@@ -4,5 +4,5 @@ metadata:
   name: app
   namespace: lab01
 data:
-  APP_VERSION: v1
   APP_MODE: dev
+  APP_VERSION: v1

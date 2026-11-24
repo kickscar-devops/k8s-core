@@ -21,13 +21,17 @@ spec:
         image: busybox:1.37
         command: ["sh", "-c", "trap 'exit 0' TERM; sleep 3600 & wait"]
 
+# 전체 환경 변수 방식 (envFrom) 또는 개별 환경 변수 방식 (valueFrom)
         envFrom:
         - configMapRef:
             name: app
 
         volumeMounts:
+# Volume Mount 방식
         - name: config
           mountPath: /etc/config
+
+# Volume Mount Subpath 방식
         - name: config
           mountPath: /etc/app/version
           subPath: APP_VERSION
